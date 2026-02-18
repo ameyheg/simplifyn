@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/rupee.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simplifyn — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" crossorigin src="/assets/dashboard-BX6pxxlp.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-523V8lMA.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-B0xMdhqv.css">
+  <link rel="stylesheet" crossorigin href="/assets/dashboard-CPCC_Hcd.css">
+</head>
+
+<body class="dashboard-body">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/" class="nav-brand">
+                <div class="nav-logo">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <rect width="28" height="28" rx="8" fill="#4F46E5" />
+                        <text x="14" y="20" text-anchor="middle" font-size="16" font-weight="700" fill="white">₹</text>
+                    </svg>
+                </div>
+                <span class="nav-brand-text">Simplifyn</span>
+            </a>
+            <button class="sidebar-toggle-inner" id="sidebarCollapseBtn" title="Collapse sidebar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="9" y1="3" x2="9" y2="21" />
+                </svg>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">OVERVIEW</div>
+            <a href="#" class="sidebar-link active" data-page="dashboard">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+
+            <div class="nav-section-label">DATA ENTRY</div>
+            <a href="#" class="sidebar-link" data-page="income">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                <span>Income</span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="investments">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+                <span>Investments</span>
+                <span class="nav-badge" id="navBadgeInvestments"></span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="loans">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                </svg>
+                <span>Loans</span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="insurance">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Insurance</span>
+                <span class="nav-badge" id="navBadgeInsurance"></span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="expenses">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="4" width="22" height="16" rx="2" />
+                    <line x1="1" y1="10" x2="23" y2="10" />
+                </svg>
+                <span>Expenses</span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="goals">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                </svg>
+                <span>Goals</span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="family">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                <span>Family</span>
+            </a>
+
+            <div class="nav-section-label">ANALYSIS</div>
+            <a href="#" class="sidebar-link" data-page="retirement">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                </svg>
+                <span>Retirement</span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="insurance-advisor">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+                <span>Insurance Advisor</span>
+            </a>
+            <a href="#" class="sidebar-link" data-page="reports">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span>Reports</span>
+            </a>
+        </nav>
+
+        <!-- User Profile -->
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">A</div>
+                <div class="user-info">
+                    <span class="user-name">Amey Hegde</span>
+                    <span class="user-plan">FREE</span>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MOBILE TOPBAR -->
+    <div class="mobile-topbar" id="mobileTopbar">
+        <button class="sidebar-toggle-mobile" id="sidebarToggleMobile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <span class="mobile-page-title">Dashboard</span>
+    </div>
+
+    <!-- OVERLAY (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="mainContent">
+        <!-- ====== DASHBOARD PAGE ====== -->
+        <div class="page active" id="page-dashboard">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Welcome back, Amey!</h1>
+                    <p class="page-subtitle">Here's your financial overview</p>
+                </div>
+                <button class="btn-icon" title="Refresh" onclick="updateDashboard()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 4 23 10 17 10" />
+                        <polyline points="1 20 1 14 7 14" />
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Financial Overview Cards -->
+            <div class="overview-cards">
+                <div class="overview-card" style="background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);">
+                    <div class="overview-card-icon" style="background: #4F46E5;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" />
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                        </svg>
+                    </div>
+                    <div class="overview-card-content">
+                        <span class="overview-card-label">Total Assets</span>
+                        <span class="overview-card-value">₹0</span>
+                    </div>
+                </div>
+                <div class="overview-card" style="background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);">
+                    <div class="overview-card-icon" style="background: #10B981;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                        </svg>
+                    </div>
+                    <div class="overview-card-content">
+                        <span class="overview-card-label">Monthly Surplus</span>
+                        <span class="overview-card-value">₹0</span>
+                    </div>
+                </div>
+                <div class="overview-card" style="background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%);">
+                    <div class="overview-card-icon" style="background: #EF4444;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <div class="overview-card-content">
+                        <span class="overview-card-label">Liabilities</span>
+                        <span class="overview-card-value">₹0</span>
+                    </div>
+                </div>
+                <div class="overview-card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);">
+                    <div class="overview-card-icon" style="background: #3B82F6;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div class="overview-card-content">
+                        <span class="overview-card-label">Net Worth</span>
+                        <span class="overview-card-value">₹0</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Corpus Row -->
+            <div class="corpus-row">
+                <div class="corpus-card">
+                    <div class="corpus-indicator green"></div>
+                    <div class="corpus-icon" style="background: #FEF3C7;">🏦</div>
+                    <div class="corpus-info">
+                        <span class="corpus-label">Projected Corpus</span>
+                        <span class="corpus-value">₹0</span>
+                        <span class="corpus-sub">At age 60</span>
+                    </div>
+                </div>
+                <div class="corpus-card">
+                    <div class="corpus-indicator orange"></div>
+                    <div class="corpus-icon" style="background: #FCE7F3;">🎯</div>
+                    <div class="corpus-info">
+                        <span class="corpus-label">Required Corpus</span>
+                        <span class="corpus-value">₹0</span>
+                        <span class="corpus-sub success">Surplus: +₹0</span>
+                    </div>
+                </div>
+                <div class="corpus-card retirement-readiness">
+                    <div class="corpus-indicator red"></div>
+                    <div class="readiness-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <div class="corpus-info">
+                        <span class="corpus-label">Retirement Readiness</span>
+                        <span class="corpus-value">0%</span>
+                        <span class="corpus-sub warning">Need to increase investments</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row: Asset Allocation + Corpus Projection -->
+            <div class="dashboard-bottom-row" id="dashboardChartsRow" style="display:none">
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Asset Allocation</h3>
+                    </div>
+                    <div class="panel-body"
+                        style="display:flex;align-items:center;justify-content:center;min-height:220px">
+                        <canvas id="assetAllocationChart" width="280" height="220"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-panel" style="flex:2">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Corpus Growth Projection</h3>
+                    </div>
+                    <div class="panel-body" style="min-height:220px">
+                        <canvas id="corpusProjectionChart" width="500" height="220"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: Emergency Fund + Smart Insights -->
+            <div class="dashboard-bottom-row">
+                <!-- Emergency Fund -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Emergency Fund</h3>
+                        <button class="btn btn-sm btn-outline panel-action" onclick="navigateToPage('investments')">
+                            Manage
+                        </button>
+                    </div>
+                    <div class="panel-body">
+                        <div class="ef-amount">
+                            <span class="ef-value">₹0</span>
+                            <span class="ef-label">Current Emergency Fund</span>
+                            <span class="ef-target">Target: ₹0 (6 months)</span>
+                        </div>
+                        <div class="ef-breakdown">
+                            <div class="ef-item">
+                                <span class="ef-item-label">Tagged</span>
+                                <span class="ef-item-value">0 investments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Insights -->
+                <div class="dashboard-panel" id="actionItemsPanel" style="flex:2">
+                    <div class="panel-header">
+                        <h3 class="panel-title">💡 Smart Insights</h3>
+                        <span class="panel-count">(0)</span>
+                    </div>
+                    <div class="panel-body" id="actionItemsBody">
+                        <div class="alerts-good">
+                            <div class="alerts-good-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                            </div>
+                            <span class="alerts-good-title">All Good!</span>
+                            <span class="alerts-good-sub">Add data to unlock personalized insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== INCOME PAGE ====== -->
+        <div class="page" id="page-income">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Income</h1>
+                    <p class="page-subtitle">Track and manage your income sources</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Income</button>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">💰</div>
+                <h3>No income sources added</h3>
+                <p>Add your salary, rental income, freelance earnings, and other income sources to get a complete
+                    picture.</p>
+                <button class="btn btn-primary btn-sm">+ Add Your First Income</button>
+            </div>
+        </div>
+
+        <!-- ====== INVESTMENTS PAGE ====== -->
+        <div class="page" id="page-investments">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Investments</h1>
+                    <p class="page-subtitle">Track all your investments in one place</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Investment</button>
+            </div>
+            <div class="investment-categories">
+                <div class="inv-category-card">
+                    <div class="inv-cat-icon" style="background: #EEF2FF; color: #4F46E5;">MF</div>
+                    <span>Mutual Funds</span>
+                    <span class="inv-cat-value">₹0</span>
+                </div>
+                <div class="inv-category-card">
+                    <div class="inv-cat-icon" style="background: #ECFDF5; color: #10B981;">ST</div>
+                    <span>Stocks</span>
+                    <span class="inv-cat-value">₹0</span>
+                </div>
+                <div class="inv-category-card">
+                    <div class="inv-cat-icon" style="background: #FEF3C7; color: #D97706;">FD</div>
+                    <span>Fixed Deposits</span>
+                    <span class="inv-cat-value">₹0</span>
+                </div>
+                <div class="inv-category-card">
+                    <div class="inv-cat-icon" style="background: #FDF2F8; color: #DB2777;">PPF</div>
+                    <span>PPF / EPF</span>
+                    <span class="inv-cat-value">₹0</span>
+                </div>
+                <div class="inv-category-card">
+                    <div class="inv-cat-icon" style="background: #FEF2F2; color: #EF4444;">NPS</div>
+                    <span>NPS</span>
+                    <span class="inv-cat-value">₹0</span>
+                </div>
+                <div class="inv-category-card">
+                    <div class="inv-cat-icon" style="background: #F0FDF4; color: #16A34A;">GL</div>
+                    <span>Gold</span>
+                    <span class="inv-cat-value">₹0</span>
+                </div>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">📈</div>
+                <h3>Start tracking your investments</h3>
+                <p>Add your mutual funds, stocks, FDs, PPF, NPS, and other investments to see your complete portfolio.
+                </p>
+                <button class="btn btn-primary btn-sm">+ Add Investment</button>
+            </div>
+        </div>
+
+        <!-- ====== LOANS PAGE ====== -->
+        <div class="page" id="page-loans">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Loans</h1>
+                    <p class="page-subtitle">Manage your outstanding loans and EMIs</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Loan</button>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">🏠</div>
+                <h3>No loans added</h3>
+                <p>Add your home loan, car loan, personal loan, or education loan to track your liabilities and plan
+                    repayments.</p>
+                <button class="btn btn-primary btn-sm">+ Add Your First Loan</button>
+            </div>
+        </div>
+
+        <!-- ====== INSURANCE PAGE ====== -->
+        <div class="page" id="page-insurance">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Insurance</h1>
+                    <p class="page-subtitle">Track all your insurance policies</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Policy</button>
+            </div>
+            <div class="insurance-types">
+                <div class="ins-type-card">
+                    <span class="ins-type-icon">🏥</span>
+                    <div>
+                        <h4>Health Insurance</h4>
+                        <p>No policies found</p>
+                    </div>
+                    <span class="check-status danger">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        Missing
+                    </span>
+                </div>
+                <div class="ins-type-card">
+                    <span class="ins-type-icon">🛡️</span>
+                    <div>
+                        <h4>Term Insurance</h4>
+                        <p>No policies found</p>
+                    </div>
+                    <span class="check-status danger">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        Missing
+                    </span>
+                </div>
+                <div class="ins-type-card">
+                    <span class="ins-type-icon">🚗</span>
+                    <div>
+                        <h4>Vehicle Insurance</h4>
+                        <p>No policies found</p>
+                    </div>
+                    <span class="check-status info">Optional</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== EXPENSES PAGE ====== -->
+        <div class="page" id="page-expenses">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Expenses</h1>
+                    <p class="page-subtitle">Track your monthly spending</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Expense</button>
+            </div>
+            <div class="expense-summary-cards">
+                <div class="exp-summary-card">
+                    <span class="exp-label">Monthly Expenses</span>
+                    <span class="exp-value">₹0</span>
+                </div>
+                <div class="exp-summary-card">
+                    <span class="exp-label">Annual Expenses</span>
+                    <span class="exp-value">₹0</span>
+                </div>
+                <div class="exp-summary-card">
+                    <span class="exp-label">Categories</span>
+                    <span class="exp-value">0</span>
+                </div>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">📊</div>
+                <h3>No expenses tracked yet</h3>
+                <p>Add your monthly expenses like rent, groceries, utilities, EMIs, and subscriptions to understand your
+                    spending.</p>
+                <button class="btn btn-primary btn-sm">+ Add Expense Category</button>
+            </div>
+        </div>
+
+        <!-- ====== GOALS PAGE ====== -->
+        <div class="page" id="page-goals">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Goals</h1>
+                    <p class="page-subtitle">Set and track your financial goals</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Goal</button>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">🎯</div>
+                <h3>No goals set yet</h3>
+                <p>Create financial goals like buying a house, children's education, vacation fund, or any custom goal.
+                </p>
+                <button class="btn btn-primary btn-sm">+ Create Your First Goal</button>
+            </div>
+        </div>
+
+        <!-- ====== FAMILY PAGE ====== -->
+        <div class="page" id="page-family">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Family</h1>
+                    <p class="page-subtitle">Manage family member details for insurance and planning</p>
+                </div>
+                <button class="btn btn-primary btn-sm">+ Add Member</button>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">👨‍👩‍👧‍👦</div>
+                <h3>No family members added</h3>
+                <p>Add family members to get accurate insurance recommendations and plan for dependents.</p>
+                <button class="btn btn-primary btn-sm">+ Add Family Member</button>
+            </div>
+        </div>
+
+        <!-- ====== RETIREMENT PAGE ====== -->
+        <div class="page" id="page-retirement">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Retirement Planning</h1>
+                    <p class="page-subtitle">Plan your retirement with inflation-adjusted projections</p>
+                </div>
+            </div>
+            <div class="retirement-summary">
+                <div class="ret-card">
+                    <h4>Current Age</h4>
+                    <input type="number" class="ret-input" id="profileCurrentAge" min="1" max="100" value="30"
+                        onchange="saveProfile()" />
+                </div>
+                <div class="ret-card">
+                    <h4>Retirement Age</h4>
+                    <input type="number" class="ret-input" id="profileRetirementAge" min="1" max="100" value="60"
+                        onchange="saveProfile()" />
+                </div>
+                <div class="ret-card">
+                    <h4>Life Expectancy</h4>
+                    <input type="number" class="ret-input" id="profileLifeExpectancy" min="1" max="120" value="85"
+                        onchange="saveProfile()" />
+                </div>
+                <div class="ret-card">
+                    <h4>Inflation (%)</h4>
+                    <input type="number" class="ret-input" id="profileInflation" min="0" max="30" step="0.5" value="6"
+                        onchange="saveProfile()" />
+                </div>
+                <div class="ret-card">
+                    <h4>Pre-Retire Return (%)</h4>
+                    <input type="number" class="ret-input" id="profilePreReturnRate" min="0" max="30" step="0.5"
+                        value="12" onchange="saveProfile()" />
+                </div>
+                <div class="ret-card">
+                    <h4>Post-Retire Return (%)</h4>
+                    <input type="number" class="ret-input" id="profilePostReturnRate" min="0" max="30" step="0.5"
+                        value="7" onchange="saveProfile()" />
+                </div>
+            </div>
+            <div class="retirement-details">
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Corpus Analysis</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="corpus-analysis-row">
+                            <div class="ca-item">
+                                <span class="ca-label">Monthly Expenses (Today)</span>
+                                <span class="ca-value">₹0</span>
+                            </div>
+                            <div class="ca-item">
+                                <span class="ca-label">Monthly Expenses (At Retirement)</span>
+                                <span class="ca-value">₹0</span>
+                            </div>
+                            <div class="ca-item">
+                                <span class="ca-label">Required Corpus</span>
+                                <span class="ca-value highlight">₹0</span>
+                            </div>
+                            <div class="ca-item">
+                                <span class="ca-label">Projected Corpus</span>
+                                <span class="ca-value">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Corpus Projection Chart -->
+                <div class="dashboard-panel" style="margin-top:20px">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Corpus Projection</h3>
+                    </div>
+                    <div class="panel-body" id="retirementCorpusProjection">
+                        <p style="color:var(--text-tertiary);font-size:13px;text-align:center">Add expenses and
+                            investments to see your year-by-year projection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== INSURANCE ADVISOR PAGE ====== -->
+        <div class="page" id="page-insurance-advisor">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Insurance Advisor</h1>
+                    <p class="page-subtitle">Get personalized insurance recommendations</p>
+                </div>
+            </div>
+            <div class="advisor-cards">
+                <div class="advisor-card">
+                    <div class="advisor-icon">🏥</div>
+                    <h3>Health Insurance</h3>
+                    <p>Add family members and income details to get a recommended health cover amount.</p>
+                    <div class="advisor-recommendation">
+                        <span class="adv-label">Recommended Cover</span>
+                        <span class="adv-value">—</span>
+                    </div>
+                    <span class="check-status danger">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        Gap Exists
+                    </span>
+                </div>
+                <div class="advisor-card">
+                    <div class="advisor-icon">🛡️</div>
+                    <h3>Term Insurance</h3>
+                    <p>Based on your income and liabilities, we'll recommend an adequate term cover.</p>
+                    <div class="advisor-recommendation">
+                        <span class="adv-label">Recommended Cover</span>
+                        <span class="adv-value">—</span>
+                    </div>
+                    <span class="check-status danger">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        Not Found
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== REPORTS PAGE ====== -->
+        <div class="page" id="page-reports">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Reports</h1>
+                    <p class="page-subtitle">Generate and download financial reports</p>
+                </div>
+            </div>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-icon">📊</div>
+                    <h3>Net Worth Report</h3>
+                    <p>Complete breakdown of your assets and liabilities.</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateReport('networth')">📄 View Report</button>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">📈</div>
+                    <h3>Investment Summary</h3>
+                    <p>Detailed analysis of your investment portfolio with returns and allocation.</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateReport('investment')">📄 View
+                        Report</button>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">🏦</div>
+                    <h3>Retirement Projection</h3>
+                    <p>Inflation-adjusted retirement planning report with corpus analysis.</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateReport('retirement')">📄 View
+                        Report</button>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">🛡️</div>
+                    <h3>Insurance Coverage</h3>
+                    <p>Review your insurance coverage adequacy and gap analysis.</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateReport('insurance')">📄 View Report</button>
+                </div>
+            </div>
+            <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+                <button class="btn btn-outline btn-sm" onclick="exportExcel()" style="gap:6px">📥 Export Excel</button>
+                <button class="btn btn-outline btn-sm" onclick="exportPDF()" style="gap:6px">📄 Export PDF
+                    Report</button>
+                <button class="btn btn-outline btn-sm" onclick="exportJSON()" style="gap:6px">💾 Export Data
+                    (JSON)</button>
+                <label class="btn btn-outline btn-sm" style="cursor:pointer;gap:6px">
+                    📂 Import Data (JSON)
+                    <input type="file" accept=".json" onchange="importJSON(event)" style="display:none" />
+                </label>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Add Item</h3>
+                <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-sm" id="modalCancel">Cancel</button>
+                <button class="btn btn-primary btn-sm" id="modalSave">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Quick Actions Floating Bar -->
+    <div id="quickActionsBar"
+        style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(15,23,42,0.92);backdrop-filter:blur(16px);border-radius:16px;padding:10px 20px;display:flex;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:90;animation:slideUp 0.5s cubic-bezier(0.16,1,0.3,1) 1s both">
+        <button class="btn btn-sm" style="background:linear-gradient(135deg,#4F46E5,#7C3AED);color:#fff;font-size:12px"
+            onclick="openFormModal('income')">+ Income</button>
+        <button class="btn btn-sm" style="background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-size:12px"
+            onclick="openFormModal('investments')">+ Investment</button>
+        <button class="btn btn-sm" style="background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff;font-size:12px"
+            onclick="openFormModal('expenses')">+ Expense</button>
+        <button class="btn btn-sm" style="background:linear-gradient(135deg,#3B82F6,#2563EB);color:#fff;font-size:12px"
+            onclick="openFormModal('goals')">+ Goal</button>
+    </div>
+
+</body>
+
+</html>
